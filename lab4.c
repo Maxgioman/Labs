@@ -77,8 +77,18 @@ int main()
         }
         mas2[i]=mas[i];
     }
-    for (i=0;i<(n-q);i++)
+    
+    j=0;
+    l=(k-1);
+    while (l>=0)
         {
-            printf("%i\n",mas2[i]);
+            printf("%i\n",mas2[l]);
+            l--;
+        }
+
+    for (j<(n-q);j>(k-1))
+        {
+            printf("%i\n",mas2[j]);
+            j++;
         }
 }
