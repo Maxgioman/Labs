@@ -3,7 +3,7 @@
 
 int main()
 {
-    int n, i, k, l, j=0, max, p, t;
+    int n, i, k, max, j=0;
 
     printf("Enter the size of your array: ");
     do
@@ -12,7 +12,7 @@ int main()
     }
     while (n<1||n>50);
 
-    int mas[n+3];
+    int mas[n];
 
     printf("Start filling your array: \n");
     for (i=0;i<n;i++)
@@ -25,25 +25,15 @@ int main()
     printf("Choose the possition from where to take out elements: ");
     scanf("%i",&k);
 
-    if (k<n)
+    if (k!=0)
     {
-        l=(k-1);
-        while (l<n)
-        {
-            printf("%i\n",mas[l]);
-            l++;
-        }
-
-        while (j<(k-1))
-        {
-            printf("%i\n",mas[j]);
-            j++;
-        }
+            printf("%i\n",mas[k]);
+            printf("%i\n",mas[k-1]);
     }
-    else
+    else if (k==0)
     {
-        printf("Your number is bigger than array's size. Try again");
-        return 0;
+        printf("%i\n",mas[k]);
+        printf("%i\n",mas[n]);
     }
 
 
@@ -57,38 +47,29 @@ int main()
         }
     }
 
-    int mas2[n+3];
-    int q =0;
+    int mas2[n];
 
     for (i=0;i<n;i++)
     {
-        p=i;
-        if (mas[i]==max)
+        if (mas[i]!=max)
         {
-            q++;
-            do
-            {
-                t=mas[p];
-                mas[p]=mas[p+1];
-                mas[p+1]=t;
-                p++;
-            }
-            while (p<(n));
+        mas2[j]=mas[i];
+        j++;
         }
-        mas2[i]=mas[i];
+        else if (mas[i]==max)
+        {
+            i++;
+        }
     }
-    
-    j=0;
-    l=(k-1);
-    while (l>=0)
-        {
-            printf("%i\n",mas2[l]);
-            l--;
-        }
 
-    for (j<(n-q);j>(k-1))
-        {
-            printf("%i\n",mas2[j]);
-            j++;
-        }
+    if (k==n)
+    {
+        printf("%i\n",mas[n]);
+        printf("%i\n",mas[0]);
+    }
+    else
+    {
+        printf("%i\n",mas[k]);
+        printf("%i\n",mas[k+1]);
+    }
 }
