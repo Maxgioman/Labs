@@ -1,75 +1,35 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 int main()
 {
-    int n, i, k, max, j=0;
+    int length,i,j;
 
     printf("Enter the size of your array: ");
-    do
-    {
-        scanf("%i",&n);
-    }
-    while (n<1||n>50);
 
-    int mas[n];
+    scanf("%i",&length);
+
+    float mas[length];
 
     printf("Start filling your array: \n");
-    for (i=0;i<n;i++)
+    for (i=0;i<length;i++)
     {
-        printf("Element%i = ",i+1);
-        scanf("%i",&mas[i]);
+        printf("Element[%i] = ",i+1);
+        scanf("%f",&mas[i]);
     }
 
-    printf("TASK2\n");
-    printf("Choose the possition from where to take out elements: ");
-    scanf("%i",&k);
+    float mas2[length][length];
 
-    if (k!=0)
-    {
-            printf("%i\n",mas[k]);
-            printf("%i\n",mas[k-1]);
-    }
-    else if (k==0)
-    {
-        printf("%i\n",mas[k]);
-        printf("%i\n",mas[n]);
-    }
+    for (i=0;i<length;i++)
+        for (j=0;j<length;j++)
+            {
+                mas2[j][i] = mas[i] / length;
+            }
 
-
-    printf("TASK3 and TASK4\n");
-    max=mas[0];
-    for (i=0;i<n;i++)
-    {
-        if (mas[i]>max)
+    for (i=0;i<length;i++)
+        for (j=0;j<length;j++)
         {
-            max=mas[i];
+            printf("Element[%i][%i] = %f\n",i+1,j+1,mas2[i][j]);
         }
-    }
-
-    int mas2[n];
-
-    for (i=0;i<n;i++)
-    {
-        if (mas[i]!=max)
-        {
-        mas2[j]=mas[i];
-        j++;
-        }
-        else if (mas[i]==max)
-        {
-            i++;
-        }
-    }
-
-    if (k==n)
-    {
-        printf("%i\n",mas[n]);
-        printf("%i\n",mas[0]);
-    }
-    else
-    {
-        printf("%i\n",mas[k]);
-        printf("%i\n",mas[k+1]);
-    }
 }
